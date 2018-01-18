@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.b2c.dao.members.MembersDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.b2c.domain.members.MembersEntity" id="membersMap">
+        <result property="id" column="id"/>
+        <result property="avatarimagefileid" column="avatarImageFileId"/>
+        <result property="email" column="email"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="registertime" column="registerTime"/>
+        <result property="lastlogintime" column="lastLoginTime"/>
+        <result property="lastloginip" column="lastLoginIp"/>
+        <result property="gender" column="gender"/>
+        <result property="birthday" column="birthday"/>
+        <result property="qq" column="qq"/>
+        <result property="mobilephone" column="mobilePhone"/>
+        <result property="phone" column="phone"/>
+        <result property="pwderrcount" column="pwdErrCount"/>
+        <result property="source" column="source"/>
+        <result property="sign" column="sign"/>
+        <result property="canreceivesms" column="canReceiveSms"/>
+        <result property="canreceiveemail" column="canReceiveEmail"/>
+        <result property="modified" column="modified"/>
+        <result property="channelid" column="channelId"/>
+        <result property="gradeId" column="grade_id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="isBlacklist" column="is_blackList"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.b2c.domain.members.MembersEntity">
+		select * from members where id = #{value}
+	</select>
+
+	<select id="loginByUserName" resultType="com.b2c.domain.members.MembersEntity">
+		select * from members where username = #{userName}
+	</select>
+
+	<select id="queryList" resultType="com.b2c.domain.members.MembersEntity">
+		select * from members
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from members 
+	</select>
+	 
+	<insert id="save" parameterType="com.b2c.domain.members.MembersEntity" useGeneratedKeys="true" keyProperty="id">
+		insert into members
+		(
+			`avatarImageFileId`, 
+			`email`, 
+			`username`, 
+			`password`, 
+			`registerTime`, 
+			`lastLoginTime`, 
+			`lastLoginIp`, 
+			`gender`, 
+			`birthday`, 
+			`qq`, 
+			`mobilePhone`, 
+			`phone`, 
+			`pwdErrCount`, 
+			`source`, 
+			`sign`, 
+			`canReceiveSms`, 
+			`canReceiveEmail`, 
+			`modified`, 
+			`channelId`, 
+			`grade_id`, 
+			`nick_name`, 
+			`is_blackList`
+		)
+		values
+		(
+			#{avatarimagefileid}, 
+			#{email}, 
+			#{username}, 
+			#{password}, 
+			#{registertime}, 
+			#{lastlogintime}, 
+			#{lastloginip}, 
+			#{gender}, 
+			#{birthday}, 
+			#{qq}, 
+			#{mobilephone}, 
+			#{phone}, 
+			#{pwderrcount}, 
+			#{source}, 
+			#{sign}, 
+			#{canreceivesms}, 
+			#{canreceiveemail}, 
+			#{modified}, 
+			#{channelid}, 
+			#{gradeId}, 
+			#{nickName}, 
+			#{isBlacklist}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.b2c.domain.members.MembersEntity">
+		update members 
+		<set>
+			<if test="avatarimagefileid != null">`avatarImageFileId` = #{avatarimagefileid}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="username != null">`username` = #{username}, </if>
+			<if test="password != null">`password` = #{password}, </if>
+			<if test="registertime != null">`registerTime` = #{registertime}, </if>
+			<if test="lastlogintime != null">`lastLoginTime` = #{lastlogintime}, </if>
+			<if test="lastloginip != null">`lastLoginIp` = #{lastloginip}, </if>
+			<if test="gender != null">`gender` = #{gender}, </if>
+			<if test="birthday != null">`birthday` = #{birthday}, </if>
+			<if test="qq != null">`qq` = #{qq}, </if>
+			<if test="mobilephone != null">`mobilePhone` = #{mobilephone}, </if>
+			<if test="phone != null">`phone` = #{phone}, </if>
+			<if test="pwderrcount != null">`pwdErrCount` = #{pwderrcount}, </if>
+			<if test="source != null">`source` = #{source}, </if>
+			<if test="sign != null">`sign` = #{sign}, </if>
+			<if test="canreceivesms != null">`canReceiveSms` = #{canreceivesms}, </if>
+			<if test="canreceiveemail != null">`canReceiveEmail` = #{canreceiveemail}, </if>
+			<if test="modified != null">`modified` = #{modified}, </if>
+			<if test="channelid != null">`channelId` = #{channelid}, </if>
+			<if test="gradeId != null">`grade_id` = #{gradeId}, </if>
+			<if test="nickName != null">`nick_name` = #{nickName}, </if>
+			<if test="isBlacklist != null">`is_blackList` = #{isBlacklist}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from members where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from members where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

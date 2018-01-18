@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: b2c-service
+  profiles:
+    active: test
+  datasource:
+      url: ${mysql.url}
+      username: ${mysql.username}
+      password: ${mysql.password}
+      driver-class-name: com.mysql.jdbc.Driver
+      tomcat:
+        max-active: 20
+        max-idle: 8
+        min-idle: 8
+        initial-size: 10
+      type: com.alibaba.druid.pool.DruidDataSource
+  cloud:
+    inetutils:
+      use-only-site-local-interfaces: true
+server:
+  port: 10100
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://47.104.14.231:8761/eureka/
+  instance:
+    ip-address: ${ipaddress}
+    prefer-ip-address: true
+    instance-id: ${ipaddress}:${server.port}
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params:
+    count: countSql
+
+mybatis:
+  type-aliases-package: com.b2c.tests
+  mapper-locations: classpath:mapper/*/*.xml
+
+
+---
+
+spring:
+  profiles: test
+mysql:
+  url: jdbc:mysql://39.108.135.53:3306/b2c?useUnicode=true&characterEncoding=utf8
+  username: root
+  password: root
+
+ipaddress: 127.0.0.1
+
+---
+
+spring:
+  profiles: dev
+mysql:
+  url: jdbc:mysql://39.108.135.53:3306/b2c?useUnicode=true&characterEncoding=utf8
+  username: root
+  password: root
+
+ipaddress: 47.104.14.231
