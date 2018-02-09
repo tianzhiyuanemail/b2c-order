@@ -30,16 +30,17 @@ public class ProductsController {
 	 * 列表
 	 */
 	@RequestMapping("/list")
-	public ServiceResult<Page<List<ProductsEntity>>> list(@RequestParam Map<String, Object> params){
+	public Page<List<ProductsEntity>> list(@RequestParam Map<String, Object> params){
 		ServiceResult<Page<List<ProductsEntity>>> serviceResult = new ServiceResult<Page<List<ProductsEntity>>>(){};
 		try {
 			Page<List<ProductsEntity>> listPageOld = productsService.queryLists(params);
 			serviceResult.setCode(listPageOld);
+			return listPageOld;
 		}catch (Exception e) {
 			log.error("接口调用出现未知异常"+e);
 			serviceResult.setError("接口调用出现未知异常"+e);
 		}
-		return serviceResult;
+		return null;
 	}
 
 
@@ -47,16 +48,17 @@ public class ProductsController {
 	 * 信息
 	 */
 	@RequestMapping("/info/{id}")
-	public ServiceResult<ProductsEntity> info(@PathVariable("id") Integer id){
+	public ProductsEntity info(@PathVariable("id") Integer id){
 		ServiceResult<ProductsEntity> serviceResult = new ServiceResult<ProductsEntity>(){};
 		try {
 			ProductsEntity products = productsService.queryObject(id);
 			serviceResult.setCode(products);
+			return products;
 		}catch (Exception e) {
 			log.error("接口调用出现未知异常"+e);
 			serviceResult.setError("接口调用出现未知异常"+e);
 		}
-		return serviceResult;
+		return null;
 	}
 
 	/**

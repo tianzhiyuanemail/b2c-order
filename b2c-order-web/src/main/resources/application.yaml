@@ -1,6 +1,6 @@
 spring:
   application:
-    name: b2c-service
+    name: b2c-order
   profiles:
     active: test
   datasource:
@@ -18,7 +18,7 @@ spring:
     inetutils:
       use-only-site-local-interfaces: true
 server:
-  port: 10100
+  port: 15100
 eureka:
   client:
     serviceUrl:

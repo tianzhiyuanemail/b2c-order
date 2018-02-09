@@ -16,7 +16,7 @@
 
         <dependency>
             <groupId>com.b2c</groupId>
-            <artifactId>b2c-service-dao</artifactId>
+            <artifactId>b2c-order-dao</artifactId>
             <version>${project.version}</version>
         </dependency>
 

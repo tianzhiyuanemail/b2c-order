@@ -1,94 +1,115 @@
 package com.b2c.domain.products;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import java.math.BigDecimal;
 
 
 /**
- * 
- * 
+ *
+ *
  * @author admin
  * @email ${email}
- * @date 2017-11-10 12:43:43
+ * @date 2018-01-28 16:27:46
  */
 public class ProductsEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	//
 	private Integer id;
 	//
-	private Integer siteid;
+	private Integer siteId;
 	//商品名称
-	private String productname;
+	private String productName;
 	//
-	private Integer lastsynctime;
+	private Integer lastSyncTime;
 	//商品活动信息 用于商品详情页显示在商品名称后面
-	private String productactivityinfo;
+	private String productActivityInfo;
 	//商品标题，商品在前台展示时显示在名称后面的描述信息
-	private String producttitle;
+	private String productTitle;
 	//品牌id
-	private Integer brandid;
+	private Integer brandId;
 	//商品类目id
-	private Integer productcateid;
+	private Integer productCateId;
+	//
+	private String productCatePath;
 	//商品类型id
-	private Integer producttypeid;
+	private Integer productTypeId;
 	//商品第一张图片
-	private String productfitstimgurl;
+	private String productFitstImgUrl;
 	//商品主图只展示前五张图片
-	private String productimgurls;
+	private String productImgUrls;
 	//产品卖点
-	private String productsellingpoint;
+	private String productSellingPoint;
+	//总库存
+	private String productStock;
 	//商品详细描述
-	private String productdetail;
+	private String productDetail;
+	//商品货号
+	private String productArticle;
 	//商家编码
 	private String sku;
 	//页面关键字，用户搜索引擎优化
 	private String keywords;
 	//商品描述，用户搜索引擎优化
 	private String description;
+	//是否七天无理由
+	private Integer isSevenDays;
+	//是否支持退换货
+	private Integer isReturns;
+	//是否保修
+	private Integer isGuarantee;
+	//是否发票
+	private Integer isBill;
 	//1上架0下架
-	private Integer issale;
+	private Integer isSale;
+	//货到付款 1 否 2 是
+	private Integer isCod;
 	//是否加星标 0 不加星标 1 加星标
-	private Integer isstar;
+	private Integer isStar;
 	//热卖
-	private Integer ishot;
+	private Integer isHot;
 	//精品
-	private Integer isbest;
+	private Integer isBest;
 	//新品
-	private Integer isnew;
+	private Integer isNew;
 	//是否特殊商品 0普通商品 1特殊商品
-	private Integer isspecial;
+	private Integer isSpecial;
 	//是否为删除状态,1-已删除,0-未删除
-	private Integer isdelete;
+	private Integer isDelete;
 	//可预订
-	private Integer isbookable;
+	private Integer isBookable;
 	//是否不参加促销
-	private Integer isnotpromotion;
+	private Integer isNotPromotion;
 	//是否支持赠品
-	private Integer isgift;
+	private Integer isGift;
 	//商品供货价格
-	private BigDecimal supplyprice;
+	private BigDecimal supplyPrice;
 	//套装价
-	private BigDecimal packageprice;
+	private BigDecimal packagePrice;
 	//参考价格,销售指导价格
-	private BigDecimal saleguideprice;
+	private BigDecimal saleGuidePrice;
 	//产品最低限价
-	private BigDecimal limitedprice;
+	private BigDecimal limitedPrice;
 	//审核状态：0正常状态,1新记录,2修改过,3新记录被拒绝,4修改过被拒绝
 	private Integer state;
 	//销量
-	private Integer salenum;
+	private Integer saleNum;
 	//虚拟销量
-	private Integer virtualsalenum;
+	private Integer virtualSaleNum;
 	//开票码
-	private String contaxcode;
+	private String conTaxCode;
 	//添加时间
-	private Integer addtime;
+	private Integer addTime;
 	//最后更改时间
-	private Integer lastmodify;
+	private Integer lastModify;
 	//对应的淘宝商品
-	private String taobaourl;
+	private String taobaoUrl;
+	//上市时间
+	private Integer listedTime;
+	//运费模板(快递费用-发货地)
+	private Integer shippingTemplatesId;
 
 	/**
 	 * 设置：
@@ -105,146 +126,182 @@ public class ProductsEntity implements Serializable {
 	/**
 	 * 设置：
 	 */
-	public void setSiteid(Integer siteid) {
-		this.siteid = siteid;
+	public void setSiteId(Integer siteId) {
+		this.siteId = siteId;
 	}
 	/**
 	 * 获取：
 	 */
-	public Integer getSiteid() {
-		return siteid;
+	public Integer getSiteId() {
+		return siteId;
 	}
 	/**
 	 * 设置：商品名称
 	 */
-	public void setProductname(String productname) {
-		this.productname = productname;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	/**
 	 * 获取：商品名称
 	 */
-	public String getProductname() {
-		return productname;
+	public String getProductName() {
+		return productName;
 	}
 	/**
 	 * 设置：
 	 */
-	public void setLastsynctime(Integer lastsynctime) {
-		this.lastsynctime = lastsynctime;
+	public void setLastSyncTime(Integer lastSyncTime) {
+		this.lastSyncTime = lastSyncTime;
 	}
 	/**
 	 * 获取：
 	 */
-	public Integer getLastsynctime() {
-		return lastsynctime;
+	public Integer getLastSyncTime() {
+		return lastSyncTime;
 	}
 	/**
 	 * 设置：商品活动信息 用于商品详情页显示在商品名称后面
 	 */
-	public void setProductactivityinfo(String productactivityinfo) {
-		this.productactivityinfo = productactivityinfo;
+	public void setProductActivityInfo(String productActivityInfo) {
+		this.productActivityInfo = productActivityInfo;
 	}
 	/**
 	 * 获取：商品活动信息 用于商品详情页显示在商品名称后面
 	 */
-	public String getProductactivityinfo() {
-		return productactivityinfo;
+	public String getProductActivityInfo() {
+		return productActivityInfo;
 	}
 	/**
 	 * 设置：商品标题，商品在前台展示时显示在名称后面的描述信息
 	 */
-	public void setProducttitle(String producttitle) {
-		this.producttitle = producttitle;
+	public void setProductTitle(String productTitle) {
+		this.productTitle = productTitle;
 	}
 	/**
 	 * 获取：商品标题，商品在前台展示时显示在名称后面的描述信息
 	 */
-	public String getProducttitle() {
-		return producttitle;
+	public String getProductTitle() {
+		return productTitle;
 	}
 	/**
 	 * 设置：品牌id
 	 */
-	public void setBrandid(Integer brandid) {
-		this.brandid = brandid;
+	public void setBrandId(Integer brandId) {
+		this.brandId = brandId;
 	}
 	/**
 	 * 获取：品牌id
 	 */
-	public Integer getBrandid() {
-		return brandid;
+	public Integer getBrandId() {
+		return brandId;
 	}
 	/**
 	 * 设置：商品类目id
 	 */
-	public void setProductcateid(Integer productcateid) {
-		this.productcateid = productcateid;
+	public void setProductCateId(Integer productCateId) {
+		this.productCateId = productCateId;
 	}
 	/**
 	 * 获取：商品类目id
 	 */
-	public Integer getProductcateid() {
-		return productcateid;
+	public Integer getProductCateId() {
+		return productCateId;
+	}
+	/**
+	 * 设置：
+	 */
+	public void setProductCatePath(String productCatePath) {
+		this.productCatePath = productCatePath;
+	}
+	/**
+	 * 获取：
+	 */
+	public String getProductCatePath() {
+		return productCatePath;
 	}
 	/**
 	 * 设置：商品类型id
 	 */
-	public void setProducttypeid(Integer producttypeid) {
-		this.producttypeid = producttypeid;
+	public void setProductTypeId(Integer productTypeId) {
+		this.productTypeId = productTypeId;
 	}
 	/**
 	 * 获取：商品类型id
 	 */
-	public Integer getProducttypeid() {
-		return producttypeid;
+	public Integer getProductTypeId() {
+		return productTypeId;
 	}
 	/**
 	 * 设置：商品第一张图片
 	 */
-	public void setProductfitstimgurl(String productfitstimgurl) {
-		this.productfitstimgurl = productfitstimgurl;
+	public void setProductFitstImgUrl(String productFitstImgUrl) {
+		this.productFitstImgUrl = productFitstImgUrl;
 	}
 	/**
 	 * 获取：商品第一张图片
 	 */
-	public String getProductfitstimgurl() {
-		return productfitstimgurl;
+	public String getProductFitstImgUrl() {
+		return productFitstImgUrl;
 	}
 	/**
 	 * 设置：商品主图只展示前五张图片
 	 */
-	public void setProductimgurls(String productimgurls) {
-		this.productimgurls = productimgurls;
+	public void setProductImgUrls(String productImgUrls) {
+		this.productImgUrls = productImgUrls;
 	}
 	/**
 	 * 获取：商品主图只展示前五张图片
 	 */
-	public String getProductimgurls() {
-		return productimgurls;
+	public String getProductImgUrls() {
+		return productImgUrls;
 	}
 	/**
 	 * 设置：产品卖点
 	 */
-	public void setProductsellingpoint(String productsellingpoint) {
-		this.productsellingpoint = productsellingpoint;
+	public void setProductSellingPoint(String productSellingPoint) {
+		this.productSellingPoint = productSellingPoint;
 	}
 	/**
 	 * 获取：产品卖点
 	 */
-	public String getProductsellingpoint() {
-		return productsellingpoint;
+	public String getProductSellingPoint() {
+		return productSellingPoint;
+	}
+	/**
+	 * 设置：总库存
+	 */
+	public void setProductStock(String productStock) {
+		this.productStock = productStock;
+	}
+	/**
+	 * 获取：总库存
+	 */
+	public String getProductStock() {
+		return productStock;
 	}
 	/**
 	 * 设置：商品详细描述
 	 */
-	public void setProductdetail(String productdetail) {
-		this.productdetail = productdetail;
+	public void setProductDetail(String productDetail) {
+		this.productDetail = productDetail;
 	}
 	/**
 	 * 获取：商品详细描述
 	 */
-	public String getProductdetail() {
-		return productdetail;
+	public String getProductDetail() {
+		return productDetail;
+	}
+	/**
+	 * 设置：商品货号
+	 */
+	public void setProductArticle(String productArticle) {
+		this.productArticle = productArticle;
+	}
+	/**
+	 * 获取：商品货号
+	 */
+	public String getProductArticle() {
+		return productArticle;
 	}
 	/**
 	 * 设置：商家编码
@@ -283,172 +340,232 @@ public class ProductsEntity implements Serializable {
 		return description;
 	}
 	/**
+	 * 设置：是否七天无理由
+	 */
+	public void setIsSevenDays(Integer isSevenDays) {
+		this.isSevenDays = isSevenDays;
+	}
+	/**
+	 * 获取：是否七天无理由
+	 */
+	public Integer getIsSevenDays() {
+		return isSevenDays;
+	}
+	/**
+	 * 设置：是否支持退换货
+	 */
+	public void setIsReturns(Integer isReturns) {
+		this.isReturns = isReturns;
+	}
+	/**
+	 * 获取：是否支持退换货
+	 */
+	public Integer getIsReturns() {
+		return isReturns;
+	}
+	/**
+	 * 设置：是否保修
+	 */
+	public void setIsGuarantee(Integer isGuarantee) {
+		this.isGuarantee = isGuarantee;
+	}
+	/**
+	 * 获取：是否保修
+	 */
+	public Integer getIsGuarantee() {
+		return isGuarantee;
+	}
+	/**
+	 * 设置：是否发票
+	 */
+	public void setIsBill(Integer isBill) {
+		this.isBill = isBill;
+	}
+	/**
+	 * 获取：是否发票
+	 */
+	public Integer getIsBill() {
+		return isBill;
+	}
+	/**
 	 * 设置：1上架0下架
 	 */
-	public void setIssale(Integer issale) {
-		this.issale = issale;
+	public void setIsSale(Integer isSale) {
+		this.isSale = isSale;
 	}
 	/**
 	 * 获取：1上架0下架
 	 */
-	public Integer getIssale() {
-		return issale;
+	public Integer getIsSale() {
+		return isSale;
+	}
+	/**
+	 * 设置：货到付款 1 否 2 是
+	 */
+	public void setIsCod(Integer isCod) {
+		this.isCod = isCod;
+	}
+	/**
+	 * 获取：货到付款 1 否 2 是
+	 */
+	public Integer getIsCod() {
+		return isCod;
 	}
 	/**
 	 * 设置：是否加星标 0 不加星标 1 加星标
 	 */
-	public void setIsstar(Integer isstar) {
-		this.isstar = isstar;
+	public void setIsStar(Integer isStar) {
+		this.isStar = isStar;
 	}
 	/**
 	 * 获取：是否加星标 0 不加星标 1 加星标
 	 */
-	public Integer getIsstar() {
-		return isstar;
+	public Integer getIsStar() {
+		return isStar;
 	}
 	/**
 	 * 设置：热卖
 	 */
-	public void setIshot(Integer ishot) {
-		this.ishot = ishot;
+	public void setIsHot(Integer isHot) {
+		this.isHot = isHot;
 	}
 	/**
 	 * 获取：热卖
 	 */
-	public Integer getIshot() {
-		return ishot;
+	public Integer getIsHot() {
+		return isHot;
 	}
 	/**
 	 * 设置：精品
 	 */
-	public void setIsbest(Integer isbest) {
-		this.isbest = isbest;
+	public void setIsBest(Integer isBest) {
+		this.isBest = isBest;
 	}
 	/**
 	 * 获取：精品
 	 */
-	public Integer getIsbest() {
-		return isbest;
+	public Integer getIsBest() {
+		return isBest;
 	}
 	/**
 	 * 设置：新品
 	 */
-	public void setIsnew(Integer isnew) {
-		this.isnew = isnew;
+	public void setIsNew(Integer isNew) {
+		this.isNew = isNew;
 	}
 	/**
 	 * 获取：新品
 	 */
-	public Integer getIsnew() {
-		return isnew;
+	public Integer getIsNew() {
+		return isNew;
 	}
 	/**
 	 * 设置：是否特殊商品 0普通商品 1特殊商品
 	 */
-	public void setIsspecial(Integer isspecial) {
-		this.isspecial = isspecial;
+	public void setIsSpecial(Integer isSpecial) {
+		this.isSpecial = isSpecial;
 	}
 	/**
 	 * 获取：是否特殊商品 0普通商品 1特殊商品
 	 */
-	public Integer getIsspecial() {
-		return isspecial;
+	public Integer getIsSpecial() {
+		return isSpecial;
 	}
 	/**
 	 * 设置：是否为删除状态,1-已删除,0-未删除
 	 */
-	public void setIsdelete(Integer isdelete) {
-		this.isdelete = isdelete;
+	public void setIsDelete(Integer isDelete) {
+		this.isDelete = isDelete;
 	}
 	/**
 	 * 获取：是否为删除状态,1-已删除,0-未删除
 	 */
-	public Integer getIsdelete() {
-		return isdelete;
+	public Integer getIsDelete() {
+		return isDelete;
 	}
 	/**
 	 * 设置：可预订
 	 */
-	public void setIsbookable(Integer isbookable) {
-		this.isbookable = isbookable;
+	public void setIsBookable(Integer isBookable) {
+		this.isBookable = isBookable;
 	}
 	/**
 	 * 获取：可预订
 	 */
-	public Integer getIsbookable() {
-		return isbookable;
+	public Integer getIsBookable() {
+		return isBookable;
 	}
 	/**
 	 * 设置：是否不参加促销
 	 */
-	public void setIsnotpromotion(Integer isnotpromotion) {
-		this.isnotpromotion = isnotpromotion;
+	public void setIsNotPromotion(Integer isNotPromotion) {
+		this.isNotPromotion = isNotPromotion;
 	}
 	/**
 	 * 获取：是否不参加促销
 	 */
-	public Integer getIsnotpromotion() {
-		return isnotpromotion;
+	public Integer getIsNotPromotion() {
+		return isNotPromotion;
 	}
 	/**
 	 * 设置：是否支持赠品
 	 */
-	public void setIsgift(Integer isgift) {
-		this.isgift = isgift;
+	public void setIsGift(Integer isGift) {
+		this.isGift = isGift;
 	}
 	/**
 	 * 获取：是否支持赠品
 	 */
-	public Integer getIsgift() {
-		return isgift;
+	public Integer getIsGift() {
+		return isGift;
 	}
 	/**
 	 * 设置：商品供货价格
 	 */
-	public void setSupplyprice(BigDecimal supplyprice) {
-		this.supplyprice = supplyprice;
+	public void setSupplyPrice(BigDecimal supplyPrice) {
+		this.supplyPrice = supplyPrice;
 	}
 	/**
 	 * 获取：商品供货价格
 	 */
-	public BigDecimal getSupplyprice() {
-		return supplyprice;
+	public BigDecimal getSupplyPrice() {
+		return supplyPrice;
 	}
 	/**
 	 * 设置：套装价
 	 */
-	public void setPackageprice(BigDecimal packageprice) {
-		this.packageprice = packageprice;
+	public void setPackagePrice(BigDecimal packagePrice) {
+		this.packagePrice = packagePrice;
 	}
 	/**
 	 * 获取：套装价
 	 */
-	public BigDecimal getPackageprice() {
-		return packageprice;
+	public BigDecimal getPackagePrice() {
+		return packagePrice;
 	}
 	/**
 	 * 设置：参考价格,销售指导价格
 	 */
-	public void setSaleguideprice(BigDecimal saleguideprice) {
-		this.saleguideprice = saleguideprice;
+	public void setSaleGuidePrice(BigDecimal saleGuidePrice) {
+		this.saleGuidePrice = saleGuidePrice;
 	}
 	/**
 	 * 获取：参考价格,销售指导价格
 	 */
-	public BigDecimal getSaleguideprice() {
-		return saleguideprice;
+	public BigDecimal getSaleGuidePrice() {
+		return saleGuidePrice;
 	}
 	/**
 	 * 设置：产品最低限价
 	 */
-	public void setLimitedprice(BigDecimal limitedprice) {
-		this.limitedprice = limitedprice;
+	public void setLimitedPrice(BigDecimal limitedPrice) {
+		this.limitedPrice = limitedPrice;
 	}
 	/**
 	 * 获取：产品最低限价
 	 */
-	public BigDecimal getLimitedprice() {
-		return limitedprice;
+	public BigDecimal getLimitedPrice() {
+		return limitedPrice;
 	}
 	/**
 	 * 设置：审核状态：0正常状态,1新记录,2修改过,3新记录被拒绝,4修改过被拒绝
@@ -465,73 +582,97 @@ public class ProductsEntity implements Serializable {
 	/**
 	 * 设置：销量
 	 */
-	public void setSalenum(Integer salenum) {
-		this.salenum = salenum;
+	public void setSaleNum(Integer saleNum) {
+		this.saleNum = saleNum;
 	}
 	/**
 	 * 获取：销量
 	 */
-	public Integer getSalenum() {
-		return salenum;
+	public Integer getSaleNum() {
+		return saleNum;
 	}
 	/**
 	 * 设置：虚拟销量
 	 */
-	public void setVirtualsalenum(Integer virtualsalenum) {
-		this.virtualsalenum = virtualsalenum;
+	public void setVirtualSaleNum(Integer virtualSaleNum) {
+		this.virtualSaleNum = virtualSaleNum;
 	}
 	/**
 	 * 获取：虚拟销量
 	 */
-	public Integer getVirtualsalenum() {
-		return virtualsalenum;
+	public Integer getVirtualSaleNum() {
+		return virtualSaleNum;
 	}
 	/**
 	 * 设置：开票码
 	 */
-	public void setContaxcode(String contaxcode) {
-		this.contaxcode = contaxcode;
+	public void setConTaxCode(String conTaxCode) {
+		this.conTaxCode = conTaxCode;
 	}
 	/**
 	 * 获取：开票码
 	 */
-	public String getContaxcode() {
-		return contaxcode;
+	public String getConTaxCode() {
+		return conTaxCode;
 	}
 	/**
 	 * 设置：添加时间
 	 */
-	public void setAddtime(Integer addtime) {
-		this.addtime = addtime;
+	public void setAddTime(Integer addTime) {
+		this.addTime = addTime;
 	}
 	/**
 	 * 获取：添加时间
 	 */
-	public Integer getAddtime() {
-		return addtime;
+	public Integer getAddTime() {
+		return addTime;
 	}
 	/**
 	 * 设置：最后更改时间
 	 */
-	public void setLastmodify(Integer lastmodify) {
-		this.lastmodify = lastmodify;
+	public void setLastModify(Integer lastModify) {
+		this.lastModify = lastModify;
 	}
 	/**
 	 * 获取：最后更改时间
 	 */
-	public Integer getLastmodify() {
-		return lastmodify;
+	public Integer getLastModify() {
+		return lastModify;
 	}
 	/**
 	 * 设置：对应的淘宝商品
 	 */
-	public void setTaobaourl(String taobaourl) {
-		this.taobaourl = taobaourl;
+	public void setTaobaoUrl(String taobaoUrl) {
+		this.taobaoUrl = taobaoUrl;
 	}
 	/**
 	 * 获取：对应的淘宝商品
 	 */
-	public String getTaobaourl() {
-		return taobaourl;
+	public String getTaobaoUrl() {
+		return taobaoUrl;
+	}
+	/**
+	 * 设置：上市时间
+	 */
+	public void setListedTime(Integer listedTime) {
+		this.listedTime = listedTime;
+	}
+	/**
+	 * 获取：上市时间
+	 */
+	public Integer getListedTime() {
+		return listedTime;
+	}
+	/**
+	 * 设置：运费模板(快递费用-发货地)
+	 */
+	public void setShippingTemplatesId(Integer shippingTemplatesId) {
+		this.shippingTemplatesId = shippingTemplatesId;
+	}
+	/**
+	 * 获取：运费模板(快递费用-发货地)
+	 */
+	public Integer getShippingTemplatesId() {
+		return shippingTemplatesId;
 	}
 }

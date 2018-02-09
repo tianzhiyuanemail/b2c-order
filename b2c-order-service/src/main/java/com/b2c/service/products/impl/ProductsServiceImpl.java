@@ -32,9 +32,7 @@ public class ProductsServiceImpl implements ProductsService {
 	@Override
 	public Page<List<ProductsEntity>> queryLists(Map<String, Object> map){
 
-
 		Page<List<ProductsEntity>> page = null;
-
 		try {
 			//查询列表数据
 			PageUtil.page(map);

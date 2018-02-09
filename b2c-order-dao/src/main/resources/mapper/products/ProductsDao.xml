@@ -4,192 +4,66 @@
 <mapper namespace="com.b2c.dao.products.ProductsDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.b2c.domain.products.ProductsEntity" id="productsMap">
-        <result property="id" column="id"/>
-        <result property="siteid" column="siteId"/>
-        <result property="productname" column="productName"/>
-        <result property="lastsynctime" column="lastSyncTime"/>
-        <result property="productactivityinfo" column="productActivityInfo"/>
-        <result property="producttitle" column="productTitle"/>
-        <result property="brandid" column="brandId"/>
-        <result property="productcateid" column="productCateId"/>
-        <result property="producttypeid" column="productTypeId"/>
-        <result property="productfitstimgurl" column="productFitstImgUrl"/>
-        <result property="productimgurls" column="productImgUrls"/>
-        <result property="productsellingpoint" column="productSellingPoint"/>
-        <result property="productdetail" column="productDetail"/>
-        <result property="sku" column="sku"/>
-        <result property="keywords" column="keywords"/>
-        <result property="description" column="description"/>
-        <result property="issale" column="isSale"/>
-        <result property="isstar" column="isStar"/>
-        <result property="ishot" column="isHot"/>
-        <result property="isbest" column="isBest"/>
-        <result property="isnew" column="isNew"/>
-        <result property="isspecial" column="isSpecial"/>
-        <result property="isdelete" column="isDelete"/>
-        <result property="isbookable" column="isBookable"/>
-        <result property="isnotpromotion" column="isNotPromotion"/>
-        <result property="isgift" column="isGift"/>
-        <result property="supplyprice" column="supplyPrice"/>
-        <result property="packageprice" column="packagePrice"/>
-        <result property="saleguideprice" column="saleGuidePrice"/>
-        <result property="limitedprice" column="limitedPrice"/>
-        <result property="state" column="state"/>
-        <result property="salenum" column="saleNum"/>
-        <result property="virtualsalenum" column="virtualSaleNum"/>
-        <result property="contaxcode" column="conTaxCode"/>
-        <result property="addtime" column="addTime"/>
-        <result property="lastmodify" column="lastModify"/>
-        <result property="taobaourl" column="taobaoUrl"/>
-    </resultMap>
+	<resultMap type="com.b2c.domain.products.ProductsEntity" id="productsMap">
+		<result property="id" column="id"/>
+		<result property="siteId" column="site_id"/>
+		<result property="productName" column="product_name"/>
+		<result property="lastSyncTime" column="last_sync_time"/>
+		<result property="productActivityInfo" column="product_activity_info"/>
+		<result property="productTitle" column="product_title"/>
+		<result property="brandId" column="brand_id"/>
+		<result property="productCateId" column="product_cate_id"/>
+		<result property="productCatePath" column="product_cate_path"/>
+		<result property="productTypeId" column="product_type_id"/>
+		<result property="productFitstImgUrl" column="product_fitst_img_url"/>
+		<result property="productImgUrls" column="product_img_urls"/>
+		<result property="productSellingPoint" column="product_selling_point"/>
+		<result property="productStock" column="product_stock"/>
+		<result property="productDetail" column="product_detail"/>
+		<result property="productArticle" column="product_article"/>
+		<result property="sku" column="sku"/>
+		<result property="keywords" column="keywords"/>
+		<result property="description" column="description"/>
+		<result property="isSevenDays" column="is_seven_days"/>
+		<result property="isReturns" column="is_returns"/>
+		<result property="isGuarantee" column="is_guarantee"/>
+		<result property="isBill" column="is_bill"/>
+		<result property="isSale" column="is_sale"/>
+		<result property="isCod" column="is_cod"/>
+		<result property="isStar" column="is_star"/>
+		<result property="isHot" column="is_hot"/>
+		<result property="isBest" column="is_best"/>
+		<result property="isNew" column="is_new"/>
+		<result property="isSpecial" column="is_special"/>
+		<result property="isDelete" column="is_delete"/>
+		<result property="isBookable" column="is_bookable"/>
+		<result property="isNotPromotion" column="is_not_promotion"/>
+		<result property="isGift" column="is_gift"/>
+		<result property="supplyPrice" column="supply_price"/>
+		<result property="packagePrice" column="package_price"/>
+		<result property="saleGuidePrice" column="sale_guide_price"/>
+		<result property="limitedPrice" column="limited_price"/>
+		<result property="state" column="state"/>
+		<result property="saleNum" column="sale_num"/>
+		<result property="virtualSaleNum" column="virtual_sale_num"/>
+		<result property="conTaxCode" column="con_tax_code"/>
+		<result property="addTime" column="add_time"/>
+		<result property="lastModify" column="last_modify"/>
+		<result property="taobaoUrl" column="taobao_url"/>
+		<result property="listedTime" column="listed_time"/>
+		<result property="shippingTemplatesId" column="shipping_templates_id"/>
+	</resultMap>
 
-	<select id="queryObject" resultType="com.b2c.domain.products.ProductsEntity">
+	<select id="queryObject" resultMap="productsMap">
 		select * from products where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.b2c.domain.products.ProductsEntity">
+	<select id="queryList" resultMap="productsMap">
 		select * from products
-
 	</select>
 	
  	<select id="queryTotal" resultType="int">
 		select count(*) from products 
 	</select>
-	 
-	<insert id="save" parameterType="com.b2c.domain.products.ProductsEntity" useGeneratedKeys="true" keyProperty="id">
-		insert into products
-		(
-			`siteId`, 
-			`productName`, 
-			`lastSyncTime`, 
-			`productActivityInfo`, 
-			`productTitle`, 
-			`brandId`, 
-			`productCateId`, 
-			`productTypeId`, 
-			`productFitstImgUrl`, 
-			`productImgUrls`, 
-			`productSellingPoint`, 
-			`productDetail`, 
-			`sku`, 
-			`keywords`, 
-			`description`, 
-			`isSale`, 
-			`isStar`, 
-			`isHot`, 
-			`isBest`, 
-			`isNew`, 
-			`isSpecial`, 
-			`isDelete`, 
-			`isBookable`, 
-			`isNotPromotion`, 
-			`isGift`, 
-			`supplyPrice`, 
-			`packagePrice`, 
-			`saleGuidePrice`, 
-			`limitedPrice`, 
-			`state`, 
-			`saleNum`, 
-			`virtualSaleNum`, 
-			`conTaxCode`, 
-			`addTime`, 
-			`lastModify`, 
-			`taobaoUrl`
-		)
-		values
-		(
-			#{siteid}, 
-			#{productname}, 
-			#{lastsynctime}, 
-			#{productactivityinfo}, 
-			#{producttitle}, 
-			#{brandid}, 
-			#{productcateid}, 
-			#{producttypeid}, 
-			#{productfitstimgurl}, 
-			#{productimgurls}, 
-			#{productsellingpoint}, 
-			#{productdetail}, 
-			#{sku}, 
-			#{keywords}, 
-			#{description}, 
-			#{issale}, 
-			#{isstar}, 
-			#{ishot}, 
-			#{isbest}, 
-			#{isnew}, 
-			#{isspecial}, 
-			#{isdelete}, 
-			#{isbookable}, 
-			#{isnotpromotion}, 
-			#{isgift}, 
-			#{supplyprice}, 
-			#{packageprice}, 
-			#{saleguideprice}, 
-			#{limitedprice}, 
-			#{state}, 
-			#{salenum}, 
-			#{virtualsalenum}, 
-			#{contaxcode}, 
-			#{addtime}, 
-			#{lastmodify}, 
-			#{taobaourl}
-		)
-	</insert>
-	 
-	<update id="update" parameterType="com.b2c.domain.products.ProductsEntity">
-		update products 
-		<set>
-			<if test="siteid != null">`siteId` = #{siteid}, </if>
-			<if test="productname != null">`productName` = #{productname}, </if>
-			<if test="lastsynctime != null">`lastSyncTime` = #{lastsynctime}, </if>
-			<if test="productactivityinfo != null">`productActivityInfo` = #{productactivityinfo}, </if>
-			<if test="producttitle != null">`productTitle` = #{producttitle}, </if>
-			<if test="brandid != null">`brandId` = #{brandid}, </if>
-			<if test="productcateid != null">`productCateId` = #{productcateid}, </if>
-			<if test="producttypeid != null">`productTypeId` = #{producttypeid}, </if>
-			<if test="productfitstimgurl != null">`productFitstImgUrl` = #{productfitstimgurl}, </if>
-			<if test="productimgurls != null">`productImgUrls` = #{productimgurls}, </if>
-			<if test="productsellingpoint != null">`productSellingPoint` = #{productsellingpoint}, </if>
-			<if test="productdetail != null">`productDetail` = #{productdetail}, </if>
-			<if test="sku != null">`sku` = #{sku}, </if>
-			<if test="keywords != null">`keywords` = #{keywords}, </if>
-			<if test="description != null">`description` = #{description}, </if>
-			<if test="issale != null">`isSale` = #{issale}, </if>
-			<if test="isstar != null">`isStar` = #{isstar}, </if>
-			<if test="ishot != null">`isHot` = #{ishot}, </if>
-			<if test="isbest != null">`isBest` = #{isbest}, </if>
-			<if test="isnew != null">`isNew` = #{isnew}, </if>
-			<if test="isspecial != null">`isSpecial` = #{isspecial}, </if>
-			<if test="isdelete != null">`isDelete` = #{isdelete}, </if>
-			<if test="isbookable != null">`isBookable` = #{isbookable}, </if>
-			<if test="isnotpromotion != null">`isNotPromotion` = #{isnotpromotion}, </if>
-			<if test="isgift != null">`isGift` = #{isgift}, </if>
-			<if test="supplyprice != null">`supplyPrice` = #{supplyprice}, </if>
-			<if test="packageprice != null">`packagePrice` = #{packageprice}, </if>
-			<if test="saleguideprice != null">`saleGuidePrice` = #{saleguideprice}, </if>
-			<if test="limitedprice != null">`limitedPrice` = #{limitedprice}, </if>
-			<if test="state != null">`state` = #{state}, </if>
-			<if test="salenum != null">`saleNum` = #{salenum}, </if>
-			<if test="virtualsalenum != null">`virtualSaleNum` = #{virtualsalenum}, </if>
-			<if test="contaxcode != null">`conTaxCode` = #{contaxcode}, </if>
-			<if test="addtime != null">`addTime` = #{addtime}, </if>
-			<if test="lastmodify != null">`lastModify` = #{lastmodify}, </if>
-			<if test="taobaourl != null">`taobaoUrl` = #{taobaourl}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
-		delete from products where id = #{value}
-	</delete>
-	
-	<delete id="deleteBatch">
-		delete from products where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
 
 </mapper>
